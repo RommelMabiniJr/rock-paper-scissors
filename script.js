@@ -1,3 +1,11 @@
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach(btn => {
+    
+    btn.addEventListener('click', playRound);
+});
+
+
 function computerPlay() {
     const arr = ['Rock', 'Paper', 'Scissors'];
     let ran = Math.floor(Math.random() * 3);
@@ -15,9 +23,17 @@ function playerSelection() {
     return bet;
 }
 
-function playRound(playerBet, computerBet) {
+function playRound() {
+
+    let playerBet = this.value;
+
+    console.log(`Player chose ${playerBet}`);
+
+    let computerBet = computerPlay();
     let message;
     
+
+    //next task: to handle return messages to be displayed within the div of our html file.
     if (playerBet == computerBet) {
         message = `It's a tie, both player & computer chose ${playerBet}`;
         return message;
