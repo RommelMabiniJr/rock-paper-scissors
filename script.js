@@ -1,4 +1,14 @@
 const buttons = document.querySelectorAll('button');
+let roundResult = document.querySelector('.results');
+let player = document.querySelector('.pScore')
+let computer = document.querySelector('.cScore')
+let scoreAllocation = document.querySelector('.alocate-score')
+let gameResult;
+
+let playerScore = 0;
+let computerScore = 0;
+
+roundResult.textContent = "Waiting for match to start...";
 
 buttons.forEach(btn => {
     
@@ -15,13 +25,13 @@ function computerPlay() {
     return bet;
 }
 
-function playerSelection() {
-    let playerInput = prompt("Choose either Rock, Paper or Scissors");
-    let bet = playerInput.charAt(0).toUpperCase() + playerInput.slice(1).toLowerCase();
+// function playerSelection() {
+//     let playerInput = prompt("Choose either Rock, Paper or Scissors");
+//     let bet = playerInput.charAt(0).toUpperCase() + playerInput.slice(1).toLowerCase();
 
-    console.log(`Player chose ${bet}`);
-    return bet;
-}
+//     console.log(`Player chose ${bet}`);
+//     return bet;
+// }
 
 function playRound() {
 
@@ -36,70 +46,75 @@ function playRound() {
     //next task: to handle return messages to be displayed within the div of our html file.
     if (playerBet == computerBet) {
         message = `It's a tie, both player & computer chose ${playerBet}`;
-        return message;
+        roundResult.textContent = message;
 
     } else if (playerBet == 'Scissors') {
 
         if (computerBet == 'Paper') {
             message = `Player wins, ${playerBet} beat ${computerBet}`;
-            return message;
+            roundResult.textContent = message;
         } else {
             message = `Player lose, ${computerBet} beat ${playerBet}`;
-            return message;
+            roundResult.textContent = message;
         }
 
     } else if (playerBet == 'Paper') {
 
         if (computerBet == 'Rock') {
             message = `Player wins, ${playerBet} beat ${computerBet}`;
-            return message;
+            roundResult.textContent = message;
         } else {
             message = `Player lose, ${computerBet} beat ${playerBet}`;
-            return message;
+            roundResult.textContent = message;
         }
 
     } else {
         if (computerBet == 'Scissors') {
             message = `Player wins, ${playerBet} beat ${computerBet}`;
-            return message;
+            roundResult.textContent = message;
         } else {
             message = `Player lose, ${computerBet} beat ${playerBet}`;
-            return message;
+            roundResult.textContent = message;
+        }
+    }
+
+
+    //call the scoreChecker function for every click event or whenever a round is commenced
+    scoreChecker(message);
+    
+    if ((playerScore||computerScore) == 5) {
+        if (playerScore > computerScore) {
+            alert("Congratulations! You won the game!");
+    
+        } else if(playerScore < computerScore){
+            alert("Computer wins the game, Try again!");
+    
+        } else {
+            alert("It's a tie, both players have equal scores!");
         }
     }
 }
 
-function game () {
-    let playerScore = 0;
-    let computerScore = 0;
+function scoreChecker(message) {
+    if ((playerScore && computerScore) < 5) {
 
-    for(let x = 0; x<5 ; x++) {
-        let result = playRound(playerSelection(), computerPlay());
-        let gameTie = result.includes('tie');
-        let playerWins = result.includes('wins');
+        let gameTie = message.includes('tie');
+        let playerWins = message.includes('wins');
 
         if(gameTie) {
-            console.log("No score is added")
+            scoreAllocation.textContent = "No score is added";
 
         } else if(playerWins) {
-            console.log("Score goes to Player")
+            scoreAllocation.textContent = "Score goes to Player";
             playerScore++;
+
         } else {
-            console.log("Score goes to Computer")
+            scoreAllocation.textContent = "Score goes to Computer";
             computerScore++;
         }
 
-        console.log(`Player score is: ${playerScore} || Computer score is: ${computerScore}`);
-        console.log("");
-    }
+        player.textContent = playerScore;
+        computer.textContent = computerScore;
 
-    if (playerScore > computerScore) {
-        console.log("Congratulations! You won the game!");
-
-    } else if(playerScore < computerScore){
-        console.log("Computer wins the game, Try again!");
-
-    } else {
-        console.log("It's a tie, both players have equal scores!");
     }
 }
