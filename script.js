@@ -82,16 +82,17 @@ function playRound() {
     //call the scoreChecker function for every click event or whenever a round is commenced
     scoreChecker(message);
     
-    if ((playerScore||computerScore) == 5) {
+    if (playerScore == 5 || computerScore == 5) {
         if (playerScore > computerScore) {
             alert("Congratulations! You won the game!");
     
-        } else if(playerScore < computerScore){
+        } else {
             alert("Computer wins the game, Try again!");
     
-        } else {
-            alert("It's a tie, both players have equal scores!");
         }
+
+        //When a player won 5 matches, reset the game automatically
+        location.reload();
     }
 }
 
