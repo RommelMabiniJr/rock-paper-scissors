@@ -25,14 +25,6 @@ function computerPlay() {
     return bet;
 }
 
-// function playerSelection() {
-//     let playerInput = prompt("Choose either Rock, Paper or Scissors");
-//     let bet = playerInput.charAt(0).toUpperCase() + playerInput.slice(1).toLowerCase();
-
-//     console.log(`Player chose ${bet}`);
-//     return bet;
-// }
-
 function playRound() {
 
     let playerBet = this.value;
@@ -43,7 +35,6 @@ function playRound() {
     let message;
     
 
-    //next task: to handle return messages to be displayed within the div of our html file.
     if (playerBet == computerBet) {
         message = `It's a tie, both player & computer chose ${playerBet}`;
         roundResult.textContent = message;
