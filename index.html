@@ -6,24 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button class="rock" value="Rock">Rock</button>
-    <button class="paper" value="Paper">Paper</button>
-    <button class="scissors" value="Scissors">Scissors</button>
     <div class="container">
-        <h2>MATCH RESULT:</h2>
-        <div class="results"></div>
-        <div class="alocate-score"></div>
-
-        <h2>SCORES:</h2>
-        <div class="player-score">
-            <h3>Player Score:</h3>
-            <p class="pScore">0</p>
+        <div class="match-message">
+            <h2>MATCH RESULT:</h2>
+            <div class="results"></div>
+            <div class="alocate-score"></div>
         </div>
-        <div class="computer-score">
-            <h3>Computer Score:</h3>
-            <p class="cScore">0</p>
+        <div class="play-container">
+            <div class="left-pane">
+                <div class="player-score">
+                    <div class="score">
+                        <p class="score-header">Player Score:<p>
+                        <p class="pScore">0</p>
+                    </div>
+                </div>
+                <img src="./images/paper.svg" alt="">
+                <div class="btns">
+                    <button class="rock" value="Rock">Rock</button>
+                    <button class="paper" value="Paper">Paper</button>
+                    <button class="scissors" value="Scissors">Scissors</button>
+                </div>
+            </div>
+            <div class="right-pane">
+                <div class="computer-score">
+                    <div class="score">
+                        <p class="score-header">Computer Score:<p>
+                        <p class="cScore">0</p>
+                    </div>
+                    <img src="./images/rock.svg" alt="">
+                </div>
+            </div>
         </div>
     </div>
 </body>
