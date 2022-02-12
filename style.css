@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+
+
+* {
+    font-family: 'Play', sans-serif;
+    background-color: #f4f1de;
+} 
+
+.match-message {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.play-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 300px;
+}
+
+img {
+    height: 450px;
+    width: 450px;
+}
+
+.score {
+    display: flex;
+    font-size: 40px;
+}
+
+.score-header {
+    font-size: 40px;
+    font-weight: bold;
+    margin-right: 30px;
+}
+.pScore,
+.cScore {
+    font-weight: bold;
+}
+
+.left-pane,
+.right-pane {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
