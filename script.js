@@ -56,35 +56,35 @@ function playRound() {
     let message;
 
     if (playerBet == computerBet) {
-        message = `It's a tie, both player & computer chose ${playerBet}`;
+        message = `It's a tie! both chose ${playerBet}`;
         roundResult.textContent = message;
 
     } else if (playerBet == 'Scissors') {
 
         if (computerBet == 'Paper') {
-            message = `Player wins, ${playerBet} beat ${computerBet}`;
+            message = `Player wins! ${playerBet} beat ${computerBet}`;
             roundResult.textContent = message;
         } else {
-            message = `Player lose, ${computerBet} beat ${playerBet}`;
+            message = `Player lose! ${computerBet} beat ${playerBet}`;
             roundResult.textContent = message;
         }
 
     } else if (playerBet == 'Paper') {
 
         if (computerBet == 'Rock') {
-            message = `Player wins, ${playerBet} beat ${computerBet}`;
+            message = `Player wins! ${playerBet} beat ${computerBet}`;
             roundResult.textContent = message;
         } else {
-            message = `Player lose, ${computerBet} beat ${playerBet}`;
+            message = `Player lose! ${computerBet} beat ${playerBet}`;
             roundResult.textContent = message;
         }
 
     } else {
         if (computerBet == 'Scissors') {
-            message = `Player wins, ${playerBet} beat ${computerBet}`;
+            message = `Player wins! ${playerBet} beat ${computerBet}`;
             roundResult.textContent = message;
         } else {
-            message = `Player lose, ${computerBet} beat ${playerBet}`;
+            message = `Player lose! ${computerBet} beat ${playerBet}`;
             roundResult.textContent = message;
         }
     }
@@ -92,19 +92,8 @@ function playRound() {
 
     //call the scoreChecker function for every click event or whenever a round is commenced
     scoreChecker(message);
-    
-    if (playerScore == 5 || computerScore == 5) {
-        if (playerScore > computerScore) {
-            alert("Congratulations! You won the game!");
-    
-        } else {
-            alert("Computer wins the game, Try again!");
-    
-        }
 
-        //When a player won 5 matches, reset the game automatically
-        location.reload();
-    }
+    winnerChecker();
 }
 
 function scoreChecker(message) {
@@ -114,19 +103,38 @@ function scoreChecker(message) {
         let playerWins = message.includes('wins');
 
         if(gameTie) {
+            scoreAllocation.style.color = '#3d405b'
             scoreAllocation.textContent = "No score is added";
 
         } else if(playerWins) {
-            scoreAllocation.textContent = "Score goes to Player";
+            scoreAllocation.style.color = '#5764dd'
+            scoreAllocation.textContent = "Player score +1";
             playerScore++;
 
         } else {
-            scoreAllocation.textContent = "Score goes to Computer";
+            scoreAllocation.style.color = '#e07a5f'
+            scoreAllocation.textContent = "Computer score +1";
             computerScore++;
         }
 
         player.textContent = playerScore;
         computer.textContent = computerScore;
 
+    }
+}
+
+function winnerChecker() {
+    
+    if (playerScore == 5 || computerScore == 5) {
+        if (playerScore > computerScore) {
+            alert("Congratulations! You won the game!"); 
+    
+        } else {
+            alert("Computer wins the game, Try again!");
+    
+        }
+
+        //resets the game automatically whenever a player/computer wins the game
+        window.location.reload();
     }
 }
