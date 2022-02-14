@@ -4,6 +4,7 @@
 * {
     font-family: 'Play', sans-serif;
     background-color: #f4f1de;
+    color: #3d405b;
 } 
 
 .match-message {
@@ -34,9 +35,18 @@ img {
     font-weight: bold;
     margin-right: 30px;
 }
+
 .pScore,
 .cScore {
     font-weight: bold;
+}
+
+.pScore {
+    color: #5764dd;
+}
+
+.cScore {
+    color: #e07a5f;
 }
 
 .left-pane,
