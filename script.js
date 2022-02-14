@@ -49,6 +49,7 @@ function playRound() {
     let playerHand = document.querySelector('#player-img');
     let computerHand = document.querySelector('#computer-img');
 
+    //set the approriate src icon according to the player/computer bet
     playerHand.src = displayHandIcon(playerBet);
     computerHand.src = displayHandIcon(computerBet);
     
