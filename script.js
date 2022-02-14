@@ -25,15 +25,34 @@ function computerPlay() {
     return bet;
 }
 
+function displayHandIcon(bet) {
+    let display;
+
+    if (bet == 'Paper') {
+        display = "./images/paper.svg";
+        return display;
+    } else if (bet == 'Rock') {
+        display = "./images/rock.svg";
+        return display;
+    } else {
+        display = "./images/scissors.svg"
+        return display;
+    }
+}
+
 function playRound() {
 
     let playerBet = this.value;
-
     console.log(`Player chose ${playerBet}`);
-
     let computerBet = computerPlay();
-    let message;
+
+    let playerHand = document.querySelector('#player-img');
+    let computerHand = document.querySelector('#computer-img');
+
+    playerHand.src = displayHandIcon(playerBet);
+    computerHand.src = displayHandIcon(computerBet);
     
+    let message;
 
     if (playerBet == computerBet) {
         message = `It's a tie, both player & computer chose ${playerBet}`;
