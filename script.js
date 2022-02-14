@@ -1,8 +1,8 @@
 const buttons = document.querySelectorAll('button');
 let roundResult = document.querySelector('.results');
-let player = document.querySelector('.pScore')
-let computer = document.querySelector('.cScore')
-let scoreAllocation = document.querySelector('.alocate-score')
+let player = document.querySelector('.pScore');
+let computer = document.querySelector('.cScore');
+let scoreAllocation = document.querySelector('.alocate-score');
 let gameResult;
 
 let playerScore = 0;
