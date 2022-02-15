@@ -12,6 +12,7 @@ Things that I have learned:
     2. Create an alert box using html and css.
     3. Rotate images using degrees and its Y or X axis.
     4. Disable or undisplay elements from Javascript.
+    5. Learned a simple hover animation.
 
 
 
