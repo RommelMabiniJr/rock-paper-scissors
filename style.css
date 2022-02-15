@@ -95,3 +95,31 @@ button {
     background-color: #277da1;
     color: #f4f1de;
 }
+
+.alert-box {
+    margin-top: 40px;
+    padding: 20px;
+    background: #008f99;
+    color: #f4f1de;
+    font-weight: bold;
+    border-radius: 10px;
+    line-height: 40px;
+}
+
+.closebtn {
+    background: #008f99;
+    color: #f4f1de;
+    margin-left: 20px;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: red;
+}
+
+.container {
+    position: relative;
+}
