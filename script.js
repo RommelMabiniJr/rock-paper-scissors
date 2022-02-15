@@ -1,8 +1,11 @@
-const buttons = document.querySelectorAll('button');
+let buttons = document.querySelectorAll('button');
 let roundResult = document.querySelector('.results');
 let player = document.querySelector('.pScore');
 let computer = document.querySelector('.cScore');
 let scoreAllocation = document.querySelector('.alocate-score');
+let alertCon = document.querySelector('.alert-container')
+let div = document.createElement('div');
+div.setAttribute('class', 'alert-box'); 
 let gameResult;
 
 let playerScore = 0;
@@ -127,14 +130,29 @@ function winnerChecker() {
     
     if (playerScore == 5 || computerScore == 5) {
         if (playerScore > computerScore) {
-            alert("Congratulations! You won the game!"); 
+            div.innerHTML = "Congratulations! You won the game! <span class='closebtn'>&times;</span>";
     
         } else {
-            alert("Computer wins the game, Try again!");
-    
+            div.innerHTML = "Computer wins the game, Try again! <span class='closebtn'>&times;</span>";
         }
 
-        //resets the game automatically whenever a player/computer wins the game
-        window.location.reload();
+        alertCon.appendChild(div);
+
+        //disable buttons to restrict the continuity of the game after alert box has been showed
+        buttons.forEach(btn => {
+    
+            btn.disabled = true;
+        });
+
+        let closebtn = document.querySelector('.closebtn');
+
+        closebtn.addEventListener('click', closeAlert);
+
+        function closeAlert(params) {
+            this.parentElement.style.display = 'none';
+
+            //resets the game automatically after clicking the close button
+            window.location.reload();
+        }
     }
 }
