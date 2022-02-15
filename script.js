@@ -148,7 +148,7 @@ function winnerChecker() {
 
         closebtn.addEventListener('click', closeAlert);
 
-        function closeAlert(params) {
+        function closeAlert() {
             this.parentElement.style.display = 'none';
 
             //resets the game automatically after clicking the close button
