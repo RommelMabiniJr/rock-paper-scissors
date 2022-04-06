@@ -25,13 +25,18 @@
 
 .play-container {
     display: flex;
-    justify-content: space-between;
-    margin: 0 300px;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.alert-container {
+    width: 300px;
 }
 
 img {
     height: 430px;
     width: 430px;
+    flex: 0 1 auto;
 }
 
 .score {
@@ -63,6 +68,7 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex: 0 1 0;
 }
 
 #player-img {
